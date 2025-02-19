@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <h2>Signup</h2>
+    <form action="/signup" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <label>Password:</label>
+        <input type="password" name="password" required><br><br>
+
+        <button type="submit">Signup</button>
+    </form>
+    
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+
+    <p id="error-message" style="color: red;"></p>
+
+    <script>
+        // Display error message if present in URL
+        const params = new URLSearchParams(window.location.search);
+        if (params.has("error")) {
+            document.getElementById("error-message").innerText = decodeURIComponent(params.get("error"));
+        }
+    </script>
+</body>
+</html>
